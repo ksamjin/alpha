@@ -109,16 +109,24 @@ Place the control_pwm.c file in the created control_pwm folder.
 To define the location of control_pwm.c file in dw3000_api.emProject
 Run dw3000_api.emProject in *<<DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK>* again with visual studio.
 
-Find *<folder Name="examples">* under *</folder> <folder Name="MAC_802_15_8"> <file file_name="$(DW3000APIDir)/Src/MAC_802_15_8/mac_802_15_8.c" />*
+Find 
 
-Then, add *</folder> <folder Name="control_pwm"> <file file_name="$(DW3000APIDir)/Src/examples/control_pwm/control_pwm.c" />* and save.
+        <folder Name="examples">* under *</folder> <folder Name="MAC_802_15_8"> <file            
+        file_name="$(DW3000APIDir)/Src/MAC_802_15_8/mac_802_15_8.c" />
+
+Then, add 
+
+        </folder> <folder Name="control_pwm"> 
+        <file file_name="$(DW3000APIDir)/Src/examples/control_pwm/control_pwm.c" />
+
+and save.
 
 * How to solve the error in running dw 3000_api.emProject by combining the control_pwm file and the UWB file. (Since there are many errors, I will only show a few examples. You can solve the remaining errors based on the methods in the examples below.)
 
 ex) No such file or directory bsp.h
 
 To define the location of bsp.h file in dw3000_api.emProject
-Run dw3000_api.emProject in <DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK> again with visual studio.
+Run dw3000_api.emProject in <<DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK> again with visual studio.
 
 Find the location of the bsp.h file in the nordic sdk files.
 Execute dw3000_api.emProject with visual studio, find c_user_include_directories and check if $(NordicSDKDir)/components/libraries/bsp is present in configuration.
@@ -127,7 +135,7 @@ If not, add $(NordicSDKDir)/components/libraries/bsp; and save it, and the error
 ex) No such file or directory app_button.h
 
 To define the location of app_button.h file in dw3000_api.emProject
-Run dw3000_api.emProject in <DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK> again with visual studio.
+Run dw3000_api.emProject in <<DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK> again with visual studio.
 
 Find the location of the app_button.h file in the nordic sdk files.
 Execute dw3000_api.emProject with visual studio, find c_user_include_directories and check if $(NordicSDKDir)/components/libraries/button exists in configuration.
@@ -139,13 +147,15 @@ Indicates that timer 1 is not activated. Therefore, timer 1 must be activated.
 You need to declare the sdk_config.h file that activates it in <dw 3000_api.emProject>.
 
 Execute dw3000_api.emProject with visual studio.
-</file>
-      <file file_name="SEGGER/SEGGER_RTT_Syscalls_SES.c">
-        <configuration Name="Debug" build_exclude_from_build="Yes" />
+
+        </file>
+              <file file_name="SEGGER/SEGGER_RTT_Syscalls_SES.c">
+                <configuration Name="Debug" build_exclude_from_build="Yes" />
+                
 Under
 
-</file>
-     <file file_name="<sdk_config.h Directory Path>/sdk_config.h" />
+        </file>
+             <file file_name="<sdk_config.h Directory Path>/sdk_config.h" />
 
 it adds
 
