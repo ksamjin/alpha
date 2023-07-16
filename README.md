@@ -98,7 +98,64 @@ The 'stop', 'go', 'go_right', 'go_left', and 'control_pwm_set' functions are def
 
 This is the main statement to run the entire code. The main statement of the dw3000_api example of the Nordic SDK was used.
 
+  ### How to combined inititaor and PWM example
 
+* Create a file that drives the DC motor driver.
+
+Enter the *<DWM 3000 API ROot Directory>/API/Src/examples>* folder and create a new folder. I set the name of the folder as control_pwm.
+
+Place the control_pwm.c file in the created control_pwm folder.
+
+To define the location of control_pwm.c file in dw3000_api.emProject
+Run dw3000_api.emProject in *<<DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK>* again with visual studio.
+
+Find *<folder Name="examples">* under *</folder> <folder Name="MAC_802_15_8"> <file file_name="$(DW3000APIDir)/Src/MAC_802_15_8/mac_802_15_8.c" />*
+
+Then, add *</folder> <folder Name="control_pwm"> <file file_name="$(DW3000APIDir)/Src/examples/control_pwm/control_pwm.c" />* and save.
+
+* How to solve the error in running dw 3000_api.emProject by combining the control_pwm file and the UWB file. (Since there are many errors, I will only show a few examples. You can solve the remaining errors based on the methods in the examples below.)
+
+ex) No such file or directory bsp.h
+
+To define the location of bsp.h file in dw3000_api.emProject
+Run dw3000_api.emProject in <DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK> again with visual studio.
+
+Find the location of the bsp.h file in the nordic sdk files.
+Execute dw3000_api.emProject with visual studio, find c_user_include_directories and check if $(NordicSDKDir)/components/libraries/bsp is present in configuration.
+If not, add $(NordicSDKDir)/components/libraries/bsp; and save it, and the error about bsp will disappear.
+
+ex) No such file or directory app_button.h
+
+To define the location of app_button.h file in dw3000_api.emProject
+Run dw3000_api.emProject in <DW3000 API Root Directory>/API/Build_Platforms/nRF52840-DK> again with visual studio.
+
+Find the location of the app_button.h file in the nordic sdk files.
+Execute dw3000_api.emProject with visual studio, find c_user_include_directories and check if $(NordicSDKDir)/components/libraries/button exists in configuration.
+If there is no app_button error, add $(NordicSDKDir)/components/libraries/button; and save.
+
+ex) 'NRFX_TIMER1_INST_IDX' undeclared here (not in a function); did you mean 'NRFX_TIMER0_INST_IDX'? 
+
+Indicates that timer 1 is not activated. Therefore, timer 1 must be activated.
+You need to declare the sdk_config.h file that activates it in <dw 3000_api.emProject>.
+
+Execute dw3000_api.emProject with visual studio.
+</file>
+      <file file_name="SEGGER/SEGGER_RTT_Syscalls_SES.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+Under
+
+</file>
+     <file file_name="<sdk_config.h Directory Path>/sdk_config.h" />
+
+it adds
+
+After adding, open sdk_config.h file and change NRFX_TIMER1_ENABLED = 1
+TIMER1_ENABLED is also changed to 1.
+
+ex) undefined reference to `app_pwm_enable'
+
+Means that app_pwm is not active.
+Enabled by changing NRFX_PWM_ENABLED = 1, NRFX_PWM1_ENABLED = 1, APP_PWM_ENABLED = 1, PWM_ENABLED = 1 in sdk_config.h file.
 
 
 
