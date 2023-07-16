@@ -169,8 +169,18 @@ ex) undefined reference to `app_pwm_enable'
 Means that app_pwm is not active.
 Enabled by changing NRFX_PWM_ENABLED = 1, NRFX_PWM1_ENABLED = 1, APP_PWM_ENABLED = 1, PWM_ENABLED = 1 in sdk_config.h file.
 
+## Team members and references
 
-
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : DongYunnn </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : Dan_v </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : Minseo </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : ksamjin</b></sub></a><br /></td>
+     <tr/>
+  </tbody>
+</table>
 
 
 
