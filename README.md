@@ -171,11 +171,21 @@ Enabled by changing NRFX_PWM_ENABLED = 1, NRFX_PWM1_ENABLED = 1, APP_PWM_ENABLED
 
 ## Team members and references
 
+### Team members
+
 **[DongYunnn](https://github.com/DongYunnn)** - Team Leader
+
 **[Dan_v](https://github.com/Dan_v)** - Team member
+
 **[Minseo](https://github.com/Minseo)** - Team member
+
 **[ksamjin](https://github.com/ksamjin)** - Team member
 
+### References
+
+https://www.qorvo.com/products/d/da008154 - dw3000 user manual
+
+https://infocenter.nordicsemi.com/pdf/nRF52840_DK_User_Guide_v1.2.pdf - Nrf52840 DK User Guide
 
 
 
