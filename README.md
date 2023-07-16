@@ -67,7 +67,7 @@ You can complete the basic environment settings through the above process.
 If you run it, you may get an error saying that the vfprintf.h file cannot be found. Then, Exclude SEGGER RTT. Also, if you right-click on Project 'dwm3000_api' on the left and change Library I/O from None to RTT in Option, the error will be resolved and the code will run fine.
 
 ## How to use project
-  ### - Description of each file
+  ### Description of each file
 I'll just mention the simple way it works. If you do not understand, please refer to the commented <NOTES> in  all example files. For further development or further understanding, please refer to the DW3000 Family User    Manual or Nrf52 Manual.
  
 * Anchor.c file. (Using ss-twr-responder in dw3000 api example)
